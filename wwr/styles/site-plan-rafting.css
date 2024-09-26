@@ -2,29 +2,37 @@
 /* if you are using any Google fonts change the font names below to your fonts. 
 Any spaces in your font name should be replaced with a +. 
 Fonts are separated by a & */
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=IM+Fell+French+Canon:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet');
+/*
+Font options
+Lato 
+IM Fell French Canon
+Ubuntu
+Open Sans
+Changa
+*/
 :root {
   /* change the values below to your colors from your palette */
-  --primary-color: #396E94   ;
-  --secondary-color: #E7C24F ;
-  --accent1-color: #A42212;
-  --accent2-color: white;
+  --primary-color: #0B2545  ;
+  --secondary-color: #134074 ;
+  --accent1-color: #9E2A2B;
+  --accent2-color: #F1A66A;
+  --accent3-color: #F1E0C5;
 
   /* change the values below to your chosen font(s) */
-  --heading-font: "IM Fell French Canon";
-  --paragraph-font: Lato, Helvetica, sans-serif;
+  --heading-font: "Changa";
+  --paragraph-font:  "Ubuntu", "sans-serif";
 
   /* these colors below should be chosen from among your palette colors above */
-  --headline-color-on-white: #396E94;  /* headlines on a white background */ 
+  --headline-color-on-white: black;  /* headlines on a white background */ 
   --headline-color-on-color: white; /* headlines on a colored background */ 
-  --paragraph-color-on-white: #396E94; /* paragraph text on a white background */ 
-  --paragraph-color-on-color: white; /* paragraph text on a colored background */ 
-  --paragraph-background-color: #396E94  ;
-  --nav-link-color: #396E94;
-  --nav-background-color: #D4AC0D;
+  --paragraph-color-on-white: black; /* paragraph text on a white background */ 
+  --paragraph-color-on-color: black; /* paragraph text on a colored background */ 
+  --paragraph-background-color:  #F1E0C5 ;
+  --nav-link-color: #134074;
+  --nav-background-color: #F1A66A;
   --nav-hover-link-color: white;
-  --nav-hover-background-color: #396E94;
+  --nav-hover-background-color: #9E2A2B;
 }
 
 
@@ -78,7 +86,7 @@ p {
   background-color: #999;
 }
 .colors td{
-  width: 25%;
+  width: 20%;
   height: 3em;
 }
 .primary {
@@ -93,6 +101,9 @@ p {
 .accent2{
   background-color: var(--accent2-color);
 }
+.accent3{
+    background-color: var(--accent3-color);
+  }
 p.colored {
   background-color: var(--paragraph-background-color);
   color: var(--paragraph-color-on-color);
