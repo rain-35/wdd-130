@@ -35,6 +35,15 @@ Changa
   --nav-hover-background-color: #9E2A2B;
 }
 
+.logo {
+  width: 150px; /* Set width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Make it circular */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  margin: auto; /* Add margin around the logo */
+  display: block; /* Ensure it's treated as a block-level element */
+  object-fit: cover; /* Ensure the image fits nicely within its container */
+}
 
 /*  Look around below...but DON'T CHANGE ANYTHING! */
 
