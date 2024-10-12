@@ -142,6 +142,7 @@ nav a:hover{
   background-color: var(--primary-color);
   padding: 10px;
   border-radius: 10%;
+  text-decoration: none;
 
 
 }
@@ -150,6 +151,7 @@ nav a:hover{
   background-color: var(--nav-hover-background-color);
   border-radius: 10%;
   padding: 10px;
+  text-decoration: none;
 }
 #background{
 
