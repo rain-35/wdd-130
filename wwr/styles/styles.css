@@ -152,7 +152,33 @@ nav a:hover{
   border-radius: 10%;
   padding: 10px;
   text-decoration: none;
+
 }
+
+.plan-link{
+  color: white;
+  background-color: var(--primary-color);
+  padding: 10px;
+  border-radius: 10%;
+  text-decoration: none;
+}
+
+.plan-link:hover{
+  color: white;
+  background-color: var(--nav-hover-background-color);
+  border-radius: 10%;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.social{
+
+}
+
+.social-link{
+  width: 60px;
+}
+
 #background{
 
 }
