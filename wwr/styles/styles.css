@@ -26,9 +26,9 @@ Changa
   /* these colors below should be chosen from among your palette colors above */
   
   --headline-color-on-white: black;  /* headlines on a white background */ 
-  --headline-color-on-color: #0B2545; /* headlines on a colored background */ 
+  --headline-color-on-color: white; /* headlines on a colored background */ 
   --paragraph-color-on-white: black; /* paragraph text on a white background */ 
-  --paragraph-color-on-color: black; /* paragraph text on a colored background */ 
+  --paragraph-color-on-color: white; /* paragraph text on a colored background */ 
   --paragraph-background-color:  #F1E0C5 ;
   --nav-link-color: #134074;
   --nav-background-color: #F1A66A;
@@ -86,6 +86,11 @@ nav {
   
 }
 
+.logo-bar{
+  padding: 0;
+  margin: 10px;
+}
+
 .card-img{
   max-width: 30%;
   padding: 10px;
@@ -95,7 +100,8 @@ nav a{
   text-align: center;
   text-decoration: none;
   min-width: 120px;
-  padding:1em;
+  padding: 20px;
+  padding-bottom: 21px;
 
 }
 
