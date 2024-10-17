@@ -13,6 +13,11 @@ Open Sans
 Changa
 Sriracha
 */
+
+html {
+  font-size: 16px; /* or 62.5% (equivalent to 10px) */
+}
+
 :root {
   /* change the values below to your colors from your palette */
   --primary-color: #0B2545  ;
@@ -61,7 +66,7 @@ nav {
   background-color: var(--nav-background-color);
   line-height: 3.2em;
   text-align: center;
-  font-size: 1.2em;
+
   font-family: var(--link-font);
   font-weight: bold;
   font-size: 1.5em;
