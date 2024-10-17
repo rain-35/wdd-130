@@ -46,7 +46,7 @@ Changa
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
-  color: var(--headline-color-on-white);
+  color: var(--headline-color-on-color);
 }
 
 h4{
@@ -217,3 +217,7 @@ footer p {
 footer p a:hover {
   text-decoration: underline;
 } 
+
+.general-text{
+  color: var(--headline-color-on-color);
+}

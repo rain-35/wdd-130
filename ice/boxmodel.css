@@ -1,0 +1,31 @@
+body{
+
+}
+
+#wrapper{
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.qbox1{
+    margin: 20px auto;
+    border: 20px solid darkred;
+    padding: 10px;
+    width: 500px;
+    border-radius: 10%;
+}
+.qbox2{
+    margin: 20px auto;
+    border: 20px solid darkred;
+    padding: 10px;
+    width: 500px;
+    border-radius: 10%;
+}
+.qbox3{
+    margin: 20px auto;
+    border: 20px solid darkred;
+    padding: 10px;
+    width: 500px;
+    border-radius: 10%;
+}
