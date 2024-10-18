@@ -43,6 +43,7 @@ html {
   --nav-background-color: #F1A66A;
   --nav-hover-link-color: white;
   --nav-hover-background-color: #9E2A2B;
+  --shadow-color-blue: var(--primary-color)
 }
 
 #content {
@@ -69,7 +70,7 @@ nav {
 
   font-family: var(--link-font);
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.2em;
 
 }
 
@@ -84,7 +85,7 @@ nav {
 }
 
 .logo {
-  width: 120px; /* Set width */
+  width: 80px; /* Set width */
   height: auto; /* Maintain aspect ratio */
   border-radius: 50%; /* Make it circular */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
@@ -108,7 +109,11 @@ nav {
 
 .card-img{
   max-width: 30%;
-  padding: 10px;
+  border: 10px solid black;
+}
+
+.nav-bar{
+
 }
 
 nav a{
@@ -116,19 +121,23 @@ nav a{
   text-decoration: none;
   font-size: 1.2em;
   min-width: 120px;
-  padding-top: 20px;
+  padding-top: 17px;
   padding-left: 2%;
   padding-right: 2%;
-  padding-bottom: 23px;
+  padding-bottom: 19px;
 
 }
 
 .title{
 font-family: var(--title-font);
 display: inline;
-font-size: 7em;
+font-size: 5em;
 vertical-align:top;
 
+}
+
+#hero{
+margin-bottom: 20px;
 }
 
 #hero-box{
@@ -156,6 +165,9 @@ main section{
 
 }
 
+main section img {
+  box-sizing: border-box;
+}
 
 #background {
   height: 725px;
@@ -176,6 +188,8 @@ header{
 nav a:hover{
   background-color: var(--nav-hover-background-color);
   color: var(--nav-hover-link-color);
+  box-shadow: 0 0 3px 2px black; /* box-shadow: <horizontal-offset> <vertical-offset> <blur-radius> <spread-radius> <color>; */
+
 }
 
 .book, .join{
@@ -186,6 +200,7 @@ nav a:hover{
   text-decoration: none;
   font-size: 1.2em;
   font-family: var(--link-font);
+  margin: 10px;
 
 
 }
@@ -193,9 +208,9 @@ nav a:hover{
   color: white;
   background-color: var(--nav-hover-background-color);
   border-radius: 10%;
-  padding: 20px;
+  padding: 10px;
   text-decoration: none;
-
+  box-shadow: 0 0 3px 3px var(--shadow-color-blue);
 }
 
 .plan-link{
@@ -212,6 +227,11 @@ nav a:hover{
   border-radius: 10%;
   padding: 10px;
   text-decoration: none;
+
+}
+
+.home-grid{
+  margin-top: 10px;
 }
 
 .social{
