@@ -32,19 +32,34 @@ function gameLoop() {
 }
 
 function moveSnake() {
-  const head = { x: snake[0].x + direction.x * boxSize, y: snake[0].y + direction.y * boxSize };
-  snake.unshift(head); // Add new head to the front
-  if (!checkFoodCollision()) {
-    snake.pop(); // Remove last element only if not eating food
+    const head = { 
+      x: snake[0].x + direction.x * boxSize, 
+      y: snake[0].y + direction.y * boxSize 
+    };
+  
+    // Wrap around the edges
+    if (head.x >= canvas.width) head.x = 0;
+    if (head.x < 0) head.x = canvas.width - boxSize;
+    if (head.y >= canvas.height) head.y = 0;
+    if (head.y < 0) head.y = canvas.height - boxSize;
+  
+    snake.unshift(head); // Add new head to the front
+    if (!checkFoodCollision()) {
+      snake.pop(); // Remove last element only if not eating food
+    }
   }
-}
 
 function drawSnake() {
-  snake.forEach(segment => {
-    ctx.fillStyle = "green";
-    ctx.fillRect(segment.x, segment.y, boxSize, boxSize);
-  });
-}
+    // Draw the head
+    ctx.fillStyle = "lightgreen"; // Lighter shade for the head
+    ctx.fillRect(snake[0].x, snake[0].y, boxSize, boxSize);
+    
+    // Draw the body
+    ctx.fillStyle = "green"; // Regular shade for the body
+    for (let i = 1; i < snake.length; i++) {
+      ctx.fillRect(snake[i].x, snake[i].y, boxSize, boxSize);
+    }
+  }
 
 function spawnFood() {
   return {
