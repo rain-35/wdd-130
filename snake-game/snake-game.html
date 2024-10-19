@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snake Game</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f4f4f4;
-      margin: 0;
-    }
-    canvas {
-      border: 1px solid black;
-      background-color: #000;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+      body {
+          margin: 0; /* Remove default margin */
+          overflow: hidden; /* Prevent scrolling */
+      }
+      canvas {
+          background-color: #000;
+          display: block;
+          margin: 0 auto; /* Center the canvas horizontally */
+          margin-top: -150px; /* Adjust this value to move the canvas up */
+      }
+      #speedSelect{
+        display: block;
+      }
   </style>
 </head>
 <body>
-  <canvas id="gameCanvas" width="400" height="400"></canvas>
-  <script src="snake.js"></script>
+
+    <h1>Snake Game</h1>
+    <label for="speedSelect">Speed:</label>
+<select id="speedSelect" >
+    <option value="fast">Fast</option>
+    <option value="medium">Medium</option>
+    <option value="slow">Slow</option>
+</select>
+
+    <button id="startButton">Start Game</button>
+
+    <h2>Score: <span id="scoreDisplay">0</span></h2> <!-- Score display -->
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="snake.js"></script> <!-- Link to the external JavaScript file -->
 </body>
 </html>
