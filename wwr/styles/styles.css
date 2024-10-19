@@ -27,7 +27,7 @@ html {
   --accent3-color: #F1E0C5;
 
   /* change the values below to your chosen font(s) */
-  --heading-font: "Changa", "sans-serif";
+  --heading-font: "Changa", "Open Sans", "sans-serif";
   --paragraph-font:  "Ubuntu", "sans-serif";
   --link-font: "lato", sans-serif   ;
   --title-font: "Sriracha", sans-serif;
