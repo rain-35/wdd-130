@@ -21,7 +21,7 @@ canvas.height = canvasSize.height;
 
 // Speed settings
 const speedOptions = {
-    fast: 100,   // Adjust this value for fast
+    fast:20,   // Adjust this value for fast
     medium: 150, // Adjust this value for medium
     slow: 300,   // Adjust this value for slow
 };

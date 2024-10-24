@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flags</title>
+    <style>
+        body{
+            background: gray;
+            
+        }
+
+        #red{
+            background: red;
+            grid-area: 2 / 1 / 3 / 4;
+        }
+
+        #blue{
+            background: blue;
+            grid-area: 1 / 1 / 2 / 2;
+        }
+
+        #white{
+            background: white;
+            grid-area: 1 / 2 / 2 / 4;
+        }
+        #chili{
+            display: grid;
+            height: 200px;
+            width: 300px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- create the Chili flag -->
+     <div id="chili">
+     <div id="blue"></div>
+     <div id="white"></div>
+     <div id="red"></div>
+     </div>
+
+
+    
+</body>
+</html>
