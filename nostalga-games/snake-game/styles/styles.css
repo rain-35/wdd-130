@@ -16,8 +16,8 @@ html {
 
 :root {
   /* change the values below to your colors from your palette */
-  --primary-color: #11253e  ;
-  --secondary-color: #1e4c72 ;
+  --primary-color:  #1e4c72 ;
+  --secondary-color: #11253e ;
   --accent1-color: #4f80a5;
   --accent2-color: #dacec2;
   --accent3-color: #cba191;
@@ -36,10 +36,10 @@ html {
   --paragraph-color-on-color: white; /* paragraph text on a colored background */ 
   --paragraph-background-color:  var(--primary-color) ;
   --nav-link-color: white;
-  --nav-background-color: var(--secondary-color);
+  --nav-background-color: var(--primary-color);
   --nav-hover-link-color: white;
   --nav-hover-background-color: var(--accent1-color);
-  --shadow-color-blue: var(--primary-color)
+  --shadow-color-blue: var(--secondary-color)
 }
 
 header{
@@ -83,7 +83,6 @@ nav a{
   text-decoration: none;
   /* background-color: #cba191; */
   font-size: 1.2em;
-  min-width: ;
   padding-top: 14px;
   padding-left: 2%;
   padding-right: 2%;
@@ -96,7 +95,7 @@ nav a{
 nav a:hover{
   background-color: var(--nav-hover-background-color);
   color: var(--nav-hover-link-color);
-  box-shadow: 0 0 3px 2px black; /* box-shadow: <horizontal-offset> <vertical-offset> <blur-radius> <spread-radius> <color>; */
+  box-shadow: 0 0 3px 2px var(--shadow-color-blue); /* box-shadow: <horizontal-offset> <vertical-offset> <blur-radius> <spread-radius> <color>; */
 
 }
 
