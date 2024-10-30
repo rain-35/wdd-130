@@ -300,7 +300,7 @@ nav a:hover{
 .home-grid{
   margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(10 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   column-gap: 10px;
 }
 
