@@ -42,32 +42,20 @@ html {
   --shadow-color-blue: var(--secondary-color)
 }
 
- body {
-    margin: 0; /* Remove default margin */
-}
-.homepage{
-  display: grid;
-  grid-template-columns: 100px 1fr 6fr 1fr 6fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr 3fr 1fr 6fr 1fr;
-  max-height: 100vh;
-
-}
-
 header{
   background-color: var(--paragraph-background-color);
-  
+  margin:  0;
+
 }
 
 .logo {
   width: 80px; /* Set width */
   height: auto; /* Maintain aspect ratio */
   border-radius: 50%; /* Make it circular */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
   margin: 20px ;
-  display: inline;
-  object-fit: cover;
-  grid-column-start: 1;
-  grid-column-end: 2;
+  display: inline; /* Ensure it's treated as a block-level element */
+  object-fit: cover; /* Ensure the image fits nicely within its container */
  
 }
 
@@ -75,15 +63,6 @@ header{
   padding: 0;
   
   
-}
-
-.red  {
-  
-}
-
-.nav-bar{
-  background-color: var(--nav-background-color);
-  grid-area: 1 / 1 / 8 / 2;
 }
 
 nav {
@@ -94,7 +73,6 @@ nav {
   font-family: var(--link-font);
   font-weight: bold;
   font-size: 1em;
-  grid-area: 1 / 1 / 8 / 2;
   
   
 
@@ -104,11 +82,15 @@ nav {
 nav a{
   text-align: center;
   text-decoration: none;
+  /* background-color: #cba191; */
   font-size: 1.2em;
   padding-top: 14px;
+  padding-left: 2%;
+  padding-right: 2%;
   padding-bottom: 15px;
   color: White;
   border-radius: 10%;
+  margin: 1%;
 }
 
 nav a:hover{
@@ -127,28 +109,10 @@ nav a:hover{
   
 }
 
-/* \/\/snake game specific\/\/ */
-
 #gameCanvas{
-
+  background-color: red;
 }
 
 .game {
   background-color: blue;
-}
-
-
-canvas {
-    background-color: #000;
-    display: block;
-    margin: 0 auto; /* Center the canvas horizontally */
-    margin-top: -150px; /* Adjust this value to move the canvas up */
-}
-#speedSelect{
-  display: block;
-}
-
-.snakepage{
-  display: grid;
-  
 }

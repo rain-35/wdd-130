@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: gingerbread;
+            src: url(gingerbreadhouse.ttf);
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #ff7518;
+            font-family: gingerbread;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        #wrapper {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+
+        header {
+
+            background-color: #333;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            font-size: 1.5em;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        nav ul li {
+            color: #c00;
+            margin: 20px 0;
+            font-size: 1.2em;
+            transition: color 0.5s, text-shadow 0.9s;
+        }
+
+        nav ul li:hover {
+            color: #ffa500;
+            text-shadow: 0 0 35px #ffa500, 0 0 15px #ffa500, 0 0 5px #ffa500;
+
+
+        }
+
+        h1 {
+            color: #ff7518;
+            /* Halloween orange for main heading */
+            text-align: center;
+            font-size: 3em;
+            text-shadow: 3px 3px 5px #7b5200;
+            grid-area: 1/1/1/4;
+
+        }
+
+        img{
+            grid-column: 2/3;
+            padding: 20px;
+        }
+
+        .text{
+            grid-column: 3/4;
+            padding: 20px;
+        }
+        footer{
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <nav>
+                <ul>
+                    <li>Costumes</li>
+                    <li>Candy</li>
+                    <li>Decorations</li>
+                    <li>Spooky</li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Happy Halloween</h1>
+            <img src="halloween.png">
+            <div class="text"> 
+            <section>
+                <h2>Pumpkins</h2>
+                <p>Zombie ipsum reversus ab viral inferno, nam rick grimes
+                    malum cerebro. De carne lumbering animata corpora quaeritis.
+                    Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger
+                    omero undead survivor dictum mauris. </p>
+            </section>
+            <section>
+                <h2>Bats</h2>
+                <p>Hi mindless mortuis soulless
+                    creaturas, imo evil stalking monstra adventus resi dentevil vultus
+                    comedat cerebella viventium. Qui animated corpse, cricket bat max
+                    brucks terribilem incessu zomby. The voodoo sacerdos flesh eater,
+                    suscitat mortuos comedere carnem virus.</p>
+            </section>
+            <section>
+                <h2>Skeletons</h2>
+                <p>Zonbi tattered for solum oculi
+                    eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut
+                    malus putrid voodoo horror. Nigh tofth eliv ingdead.</p>
+            </section>
+            </div>
+        </main>
+    </div>
+        <footer>
+            Happy Halloween &copy; 2024
+        </footer>
+    
+</body>
+
+</html>

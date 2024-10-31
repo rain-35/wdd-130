@@ -4,23 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+
     <style>
-      body {
-          margin: 0; /* Remove default margin */
-          overflow: hidden; /* Prevent scrolling */
-      }
-      canvas {
-          background-color: #000;
-          display: block;
-          margin: 0 auto; /* Center the canvas horizontally */
-          margin-top: -150px; /* Adjust this value to move the canvas up */
-      }
-      #speedSelect{
-        display: block;
-      }
+     
   </style>
 </head>
 <body>
+    <div class="snakepage"> 
 
     <h1>Snake Game</h1>
     <label for="speedSelect">Speed:</label>
@@ -36,6 +27,7 @@
 
     <canvas id="gameCanvas"></canvas>
 
-    <script src="snake.js"></script> <!-- Link to the external JavaScript file -->
+    <script class="game" src="snake.js"></script> <!-- Link to the external JavaScript file -->
+    </div>
 </body>
 </html>
