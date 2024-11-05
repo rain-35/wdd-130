@@ -13,8 +13,8 @@ Sriracha
 */
 :root {
   /* change the values below to your colors from your palette */
-  --primary-color: #11253e  ;
-  --secondary-color: #1e4c72 ;
+  --primary-color:  #1e4c72 ;
+  --secondary-color: #11253e ;
   --accent1-color: #4f80a5;
   --accent2-color: #dacec2;
   --accent3-color: #cba191;
@@ -139,7 +139,7 @@ nav a{
   text-decoration: none;
   /* background-color: #cba191; */
   font-size: 1.2em;
-  min-width: ;
+
   padding-top: 14px;
   padding-left: 2%;
   padding-right: 2%;
