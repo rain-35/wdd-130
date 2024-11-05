@@ -245,7 +245,7 @@ body{
 }
 
 header{
-  background-color: var(--paragraph-background-color);
+  background-color: var(--primary-color);
   margin:  0;
   display: grid;
   grid-template-columns: 150px auto;
@@ -321,7 +321,7 @@ nav a:hover{
 footer {
   background-color: #6f7364;
   padding: 25px 50px;
-  margin-top: 200px; 
+  margin-top: 0; 
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -352,6 +352,9 @@ footer p a:hover {
 
 .general-text{
   color: var(--headline-color-on-color);
+}
+.paragraph-mountain{
+  font-family: var(--paragraph-font);
 }
 
 @media screen and (max-width: 900px) {
@@ -397,4 +400,38 @@ footer p a:hover {
       margin-top: 25px;
   }
 }
-          
+      
+/* page 2 
+.
+.
+.
+.
+*/
+.page2-grid{
+  
+  background-color: var(--paragraph-background-color);
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.page2-grid h2{
+  color: black;
+  font-size: 2em;
+}
+
+.river-text{
+  margin: 20px;
+}
+.paragraph-river{
+  font-family: var(--paragraph-font);
+  font-size: 1.5em;
+}
+
+.salmon-img{
+  max-width: 500px;
+  max-height: auto;
+  margin: 20px;
+  border: solid black 10px;
+}
+
+
