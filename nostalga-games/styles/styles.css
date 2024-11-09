@@ -47,15 +47,15 @@ html {
 }
 .homepage{
   display: grid;
-  grid-template-columns: 100px 1fr 6fr 1fr 6fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr 3fr 1fr 6fr 1fr;
-  max-height: 100vh;
-
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 100vh;
+  
 }
 
 header{
   background-color: var(--paragraph-background-color);
-  
+  grid-auto-columns: 1/2;
+  text-align: center;
 }
 
 .logo {
@@ -63,7 +63,6 @@ header{
   height: auto; /* Maintain aspect ratio */
   border-radius: 50%; /* Make it circular */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  margin: 20px ;
   display: inline;
   object-fit: cover;
   grid-column-start: 1;
@@ -72,28 +71,23 @@ header{
 }
 
 .logo-bar{
-  padding: 0;
-  
-  
+
 }
 
-.red  {
-  
-}
+
 
 .nav-bar{
-  background-color: var(--nav-background-color);
-  grid-area: 1 / 1 / 8 / 2;
+
 }
 
 nav {
   background-color: var(--nav-background-color);
-  line-height: 4em;
+  line-height: 2em;
   text-align: center;
   color: White;
   font-family: var(--link-font);
   font-weight: bold;
-  font-size: 1em;
+  font-size: .8em;
   grid-area: 1 / 1 / 8 / 2;
   
   
@@ -120,10 +114,8 @@ nav a:hover{
 
 
 #content {
-  max-width: 1600px;
-  max-height: 100px;
-  text-align: center;
-  margin: 0 auto ;
+
+  background-color: red;
   
 }
 
@@ -134,7 +126,7 @@ nav a:hover{
 }
 
 .game {
-  background-color: blue;
+  
 }
 
 
@@ -142,13 +134,13 @@ canvas {
     background-color: #000;
     display: block;
     margin: 0 auto; /* Center the canvas horizontally */
-    margin-top: -150px; /* Adjust this value to move the canvas up */
+    margin-top: 0; /* Adjust this value to move the canvas up */
 }
 #speedSelect{
   display: block;
 }
 
 .snakepage{
-  display: grid;
+ 
   
 }
