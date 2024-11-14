@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W09 ICE challenge</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+        }
+
+        #content {
+            width: 300px;
+            height: 500px;
+            margin: auto;
+            border-radius: 50%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+        }
+
+        .bridge-img {
+            width: 100%;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            margin: 0;
+            grid-area: 1/1/1/4;
+        }
+
+        .text {
+            margin: 0;
+            padding: 0px;
+            background-color: #ffffff;
+            grid-area: 2/1/2/4;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            color: #4c6692;
+            font-size: 1em;
+            margin-top: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 2.5em;
+        }
+
+        p {
+            margin: 25px;
+            color: #8b808b;
+        }
+        footer{
+            grid-area: 3/1/4/4;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 2px;
+            background-color: #808080;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            
+            
+        }
+
+        .read-box,.views-box,.comments-box{
+            background-color: #3f5b8b;
+            text-align: center;
+            color: #ffffff;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            font-size: .8em;
+            
+
+        }
+
+        .read-box {
+            grid-area: 1/1/2/2;
+            border-bottom-left-radius: 20px;
+
+            
+            
+        }
+
+        .views-box{
+            grid-area: 1/2/2/3;
+            
+        }
+
+        .comments-box{
+            grid-area: 1/3/2/4;
+            border-bottom-right-radius: 20px;
+           
+            
+            
+        }
+        h3{
+            font-size: 2em;
+            margin: 0;
+
+            }
+        
+        sup{
+            font-size: .5em;
+            margin: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <img class="bridge-img" src="images/bridge.jpg" alt="city scape">
+
+        <div class="text">
+            <h1>
+                3 weeks ago
+            </h1>
+            <h2>
+                Post Three
+            </h2>
+            <p>
+                This would be some text to go here and tell you about this awesome article that they should definitely
+                read. This would be some text to go here and tell you about this awesome article that they should
+                definitely read. This would be some text to go here.
+            </p>
+
+
+        </div>
+        <footer>
+
+            <div class="read-box">
+                <div class="5">
+                    <h3>
+                        5 <sup>m</sup>
+                    </h3>
+                    READ
+
+                </div>
+                <div class="read">
+
+                </div>
+
+            </div>
+
+            <div class="views-box">
+                <div class="2031">
+                    <h3>
+                        2031
+                    </h3>
+                    VIEWS
+
+                </div>
+                <div class="views">
+
+                </div>
+
+            </div>
+
+            <div class="comments-box">
+                <div class="15">
+                    <h3>
+                        15
+                    </h3>
+                    COMMENTS
+
+                </div>
+                <div class="comments">
+
+                </div>
+
+            </div>
+        </footer>
+
+
+    </div>
+
+</body>
+
+</html>

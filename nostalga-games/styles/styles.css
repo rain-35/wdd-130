@@ -67,6 +67,7 @@ header{
   object-fit: cover;
   grid-column-start: 1;
   grid-column-end: 2;
+  margin-top: 10px;
  
 }
 
@@ -89,6 +90,8 @@ nav {
   font-weight: bold;
   font-size: .8em;
   grid-area: 1 / 1 / 8 / 2;
+  margin-top: 20px;
+  
   
   
 
@@ -99,10 +102,14 @@ nav a{
   text-align: center;
   text-decoration: none;
   font-size: 1.2em;
-  padding-top: 14px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 90px;
+  
   color: White;
   border-radius: 10%;
+  display: block;
+  margin: 20px auto;
 }
 
 nav a:hover{
