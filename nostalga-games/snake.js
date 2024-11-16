@@ -142,13 +142,13 @@ document.addEventListener('keydown', (e) => {
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
         e.preventDefault(); // Prevent default scrolling behavior
     }
-    if (e.key === 'ArrowUp' && direction.y === 0) {
+    if ((e.key === 'ArrowUp' || e.key === 'w') && direction.y === 0) {
         direction = { x: 0, y: -boxSize };
-    } else if (e.key === 'ArrowDown' && direction.y === 0) {
+    } else if ((e.key === 'ArrowDown' || e.key === 's') && direction.y === 0) {
         direction = { x: 0, y: boxSize };
-    } else if (e.key === 'ArrowLeft' && direction.x === 0) {
+    } else if ((e.key === 'ArrowLeft' || e.key === 'a') && direction.x === 0) {
         direction = { x: -boxSize, y: 0 };
-    } else if (e.key === 'ArrowRight' && direction.x === 0) {
+    } else if ((e.key === 'ArrowRight' || e.key === 'd') && direction.x === 0) {
         direction = { x: boxSize, y: 0 };
     }
 });

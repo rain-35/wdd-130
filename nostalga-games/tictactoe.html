@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Tic Tac Toe</title>
+    <style>
+        body {
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            height: 100vh;
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+            
+        }
+
+        #gameBoard {
+            grid-area: 2/2/3/3;
+            background-color: black;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 10px;
+            width: 485px;
+            /* Adjust to fit the grid properly */
+            height: 485px;
+            /* Adjust to fit the grid properly */
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 2px solid black;
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .board:not(.active) {
+            opacity: 0.5;
+            /* Makes the board appear dimmed */
+        }
+
+        .board.active {
+            border: 3px solid #009dff;
+        }
+
+        .board.won {
+            background-color: #d4edda;
+            /* Light green for won board */
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .cell.disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        .cell.x {
+            color: red;
+        }
+
+        .cell.o {
+            color: blue;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div id="gameBoard"></div>
+    <script src="tictactoe.js"></script>
+</body>
+
+</html>
