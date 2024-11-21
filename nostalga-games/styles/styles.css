@@ -48,7 +48,7 @@ html {
 .homepage{
   display: grid;
   grid-template-columns: 100px 1fr;
-  grid-template-rows: 100vh;
+  grid-template-rows: 100vh ;
   
 }
 
@@ -107,7 +107,7 @@ nav a{
   width: 90px;
   
   color: White;
-  border-radius: 10%;
+  border-radius: 10px;
   display: block;
   margin: 20px auto;
 }
@@ -123,6 +123,7 @@ nav a:hover{
 #content {
 
   background-color: red;
+  grid-area: 1/2/2/3;
   
 }
 
@@ -147,7 +148,136 @@ canvas {
   display: block;
 }
 
-.snakepage{
+footer{
+  background-color: var(--accent3-color);
+ height: 100px;
+ grid-area: 2/1/3/3 ;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
  
+}
+
+.plan-link{
+  color: white;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline;
+}
+
+.plan-link:hover{
+  color: white;
+  background-color: var(--nav-hover-background-color);
+  box-shadow: 0 0 3px 2px var(--shadow-color-blue); /* box-shadow: <horizontal-offset> <vertical-offset> <blur-radius> <spread-radius> <color>; */
+
+  padding: 10px;
+  text-decoration: none;
+
+}
+
+/* \/\/\/ tic tac toe \/\/\/ */
+
+#tictacwrapper {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 100vh;
+  background-color: #f4f4f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  overflow: hidden;
   
+}
+
+#gameBoard {
+  grid-area: 2/2/3/3;
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 485px;
+  /* Adjust to fit the grid properly */
+  height: 485px;
+  /* Adjust to fit the grid properly */
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: 2px solid black;
+  
+  background-color: #fff;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.board:not(.active) {
+  opacity: 0.5;
+  /* Makes the board appear dimmed */
+}
+
+.board.active {
+  border: 3px solid #009dff;
+}
+
+.board.won {
+  background-color: #d4edda;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.board.won .winning-symbol {
+  font-size: 60px;
+  font-weight: bold;
+  color: inherit; /* Matches the color of X or O */
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.cell.disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.cell.x {
+  color: red;
+}
+
+.cell.o {
+  color: blue;
+}
+
+/* Styling for winning symbol (X or O) in a won board */
+.board.won .cell.x {
+  color: red; /* Make sure the X stays red in a won board */
+}
+
+.board.won .cell.o {
+  color: blue; /* Make sure the O stays blue in a won board */
+}
+
+/* Keep other existing styles */
+.board.won .winning-symbol {
+  font-size: 48px;  /* Make winning symbol bigger */
+  font-weight: bold;
+  color: inherit;  /* This ensures color from .cell.x or .cell.o is inherited */
+  text-align: center;
 }

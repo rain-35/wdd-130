@@ -41,20 +41,34 @@ function handleCellClick(e) {
   this.classList.add(currentPlayer.toLowerCase());
 
   // Check if the small board is won
-  if (checkWin(smallBoards[boardIndex])) {
-    const boardElement = document.querySelector(`.board[data-index="${boardIndex}"]`);
-    boardElement.classList.add("won", "disabled");
-    globalBoard[Math.floor(boardIndex / 3)][boardIndex % 3] = currentPlayer;
-    if (checkWin(globalBoard)) {
-      alert(`${currentPlayer} wins the game!`);
-      resetGame();
-      return;
-    }
+ // Check if the small board is won
+if (checkWin(smallBoards[boardIndex])) {
+  const boardElement = document.querySelector(`.board[data-index="${boardIndex}"]`);
+  
+  // Add won class and disable clicks
+  boardElement.classList.add("won", "disabled");
+  
+  // Create and add the winning symbol to the board (either X or O)
+  const winningSymbol = document.createElement("div");
+  winningSymbol.classList.add("winning-symbol");
+  winningSymbol.textContent = currentPlayer;  // This will add either X or O
+  boardElement.appendChild(winningSymbol);
+  
+  // Mark the global board as won
+  globalBoard[Math.floor(boardIndex / 3)][boardIndex % 3] = currentPlayer;
+  
+  // Check if the global board has been won
+  if (checkWin(globalBoard)) {
+    alert(`${currentPlayer} wins the game!`);
+    resetGame();
+    return;
   }
+}
+
 
   // Switch turns and update active board
   currentPlayer = currentPlayer === "X" ? "O" : "X";
-  activeBoard = cellIndex;
+  activeBoard = globalBoard.flat().includes(null) ? cellIndex : null; // Allow free play if the target board is full
   updateActiveBoards();
 }
 
@@ -80,10 +94,10 @@ function updateActiveBoards() {
   document.querySelectorAll(".board").forEach((board, index) => {
     if (activeBoard === null || activeBoard === index) {
       board.classList.add("active");
-      board.classList.remove("disabled");
+      board.classList.remove("disabled", "dimmed");
     } else {
       board.classList.remove("active");
-      board.classList.add("disabled");
+      board.classList.add("disabled", "dimmed");
     }
   });
 }
@@ -101,7 +115,15 @@ function resetGame() {
     cell.classList.remove("x", "o");
   });
   document.querySelectorAll(".board").forEach(board => {
-    board.classList.remove("won", "active", "disabled");
+    board.classList.remove("won", "active", "disabled", "dimmed");
+    board.innerHTML = ""; // Remove winning symbols
+    for (let j = 0; j < 9; j++) {
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+      cell.dataset.index = j;
+      cell.addEventListener("click", handleCellClick);
+      board.appendChild(cell);
+    }
   });
   updateActiveBoards();
 }
