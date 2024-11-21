@@ -24,12 +24,17 @@ for (let i = 0; i < 9; i++) {
 }
 
 // Handle cell clicks
+// Handle cell clicks
 function handleCellClick(e) {
   const boardIndex = parseInt(this.parentElement.dataset.index);
   const cellIndex = parseInt(this.dataset.index);
 
-  // Ignore clicks on disabled cells
-  if (this.textContent || (activeBoard !== null && activeBoard !== boardIndex)) {
+  // Ignore clicks on disabled cells or won boards
+  if (
+    this.textContent || // Cell already marked
+    (activeBoard !== null && activeBoard !== boardIndex) || // Not the active board
+    globalBoard[Math.floor(boardIndex / 3)][boardIndex % 3] !== null // Board already won
+  ) {
     return;
   }
 
@@ -41,36 +46,80 @@ function handleCellClick(e) {
   this.classList.add(currentPlayer.toLowerCase());
 
   // Check if the small board is won
- // Check if the small board is won
-if (checkWin(smallBoards[boardIndex])) {
-  const boardElement = document.querySelector(`.board[data-index="${boardIndex}"]`);
-  
-  // Add won class and disable clicks
-  boardElement.classList.add("won", "disabled");
-  
-  // Create and add the winning symbol to the board (either X or O)
-  const winningSymbol = document.createElement("div");
-  winningSymbol.classList.add("winning-symbol");
-  winningSymbol.textContent = currentPlayer;  // This will add either X or O
-  boardElement.appendChild(winningSymbol);
-  
-  // Mark the global board as won
-  globalBoard[Math.floor(boardIndex / 3)][boardIndex % 3] = currentPlayer;
-  
-  // Check if the global board has been won
-  if (checkWin(globalBoard)) {
-    alert(`${currentPlayer} wins the game!`);
-    resetGame();
-    return;
-  }
-}
+  if (checkWin(smallBoards[boardIndex])) {
+    const boardElement = document.querySelector(`.board[data-index="${boardIndex}"]`);
 
+    // Clear all cells in the board to avoid duplicates
+    boardElement.querySelectorAll(".cell").forEach(cell => {
+      cell.textContent = ""; // Remove any existing symbols
+    });
+
+    // Add won class and disable clicks
+    boardElement.classList.add("won", "disabled");
+
+    // Create and add the winning symbol to the board (centralized display)
+    const winningSymbol = document.createElement("div");
+    winningSymbol.classList.add("winning-symbol", currentPlayer.toLowerCase());
+    winningSymbol.textContent = currentPlayer.trim();
+    boardElement.appendChild(winningSymbol);
+
+    // Update the global board state
+    globalBoard[Math.floor(boardIndex / 3)][boardIndex % 3] = currentPlayer;
+
+    // Check if the global board has been won
+    if (checkWin(globalBoard)) {
+      alert(`${currentPlayer} wins the game!`);
+      resetGame();
+      return;
+    }
+  }
+
+  // Check if the target board is full
+  const targetBoardFull = smallBoards[cellIndex].flat().every(cell => cell !== null);
+  const targetBoardWon =
+    globalBoard[Math.floor(cellIndex / 3)][cellIndex % 3] !== null;
+
+  // Update the board's "full" class if it's full but not won
+  const boardElement = document.querySelector(`.board[data-index="${boardIndex}"]`);
+  if (targetBoardFull && !targetBoardWon) {
+    boardElement.classList.add("full"); // Add red haze
+  }
 
   // Switch turns and update active board
   currentPlayer = currentPlayer === "X" ? "O" : "X";
-  activeBoard = globalBoard.flat().includes(null) ? cellIndex : null; // Allow free play if the target board is full
+
+  // Allow free play if the target board is full or won, otherwise set active board
+  activeBoard =
+    !targetBoardFull && !targetBoardWon && globalBoard.flat().includes(null)
+      ? cellIndex
+      : null;
+
   updateActiveBoards();
 }
+
+// Highlight active board
+function updateActiveBoards() {
+  document.querySelectorAll(".board").forEach((board, index) => {
+    const boardWon = globalBoard[Math.floor(index / 3)][index % 3] !== null; // Check if this board is won
+    const boardFull = smallBoards[index].flat().every(cell => cell !== null); // Check if this board is full
+    if (
+      (activeBoard === null || activeBoard === index) &&
+      !boardWon // Exclude won boards from being active
+    ) {
+      board.classList.add("active");
+      board.classList.remove("disabled", "dimmed", "full");
+    } else {
+      board.classList.remove("active");
+      board.classList.add("disabled", "dimmed");
+      if (boardFull && !boardWon) {
+        board.classList.add("full"); // Apply red haze
+      } else {
+        board.classList.remove("full");
+      }
+    }
+  });
+}
+
 
 // Check for a win in a 3x3 grid
 function checkWin(board) {

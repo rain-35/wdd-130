@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,39 @@
     <link type="text/css" rel="stylesheet" href="styles/styles.css">
 
     <style>
-     
-  </style>
+
+    </style>
 </head>
+
 <body>
-    <div class="snakepage"> 
+    <div class="snakepage">
 
-    <h1>Snake Game</h1>
-    <label for="speedSelect">Speed:</label>
-<select id="speedSelect" >
-    <option value="fast">Fast</option>
-    <option value="medium">Medium</option>
-    <option value="slow">Slow</option>
-</select>
+        <h1>Snake Game</h1>
+        <label for="speedSelect">Speed:</label>
+        <select id="speedSelect">
+            <option value="fast">Fast</option>
+            <option value="medium">Medium</option>
+            <option value="slow">Slow</option>
+        </select>
 
-    <button id="startButton">Start Game</button>
+        <button id="startButton">Start Game</button>
 
-    <h2>Score: <span id="scoreDisplay">0</span></h2> <!-- Score display -->
+        <h2>Score: <span id="scoreDisplay">0</span></h2> <!-- Score display -->
 
-    <canvas id="gameCanvas"></canvas>
+        <canvas id="gameCanvas"></canvas>
 
-    <script class="game" src="snake.js"></script> <!-- Link to the external JavaScript file -->
+        <script class="game" src="snake.js"></script> <!-- Link to the external JavaScript file -->
+        <img class="snake-img" src="images/snake.jpeg" alt="">
+        
+        <p>In this classic snake game, your goal is to control a growing snake and collect food while avoiding
+            collisions with your own tail. Use the arrow keys (or WASD keys) to guide the snake in different directions.
+            Each time the snake eats a piece of food, it grows longer, and your score increases. The game becomes more
+            challenging as the snake's length increases, requiring careful maneuvering to avoid trapping yourself. You
+            can adjust the game speed—slow, medium, or fast—before starting to suit your play style. Aim for the highest
+            score you can achieve!</p>
+            <img class="snake-img" src="images/tall-snake.jpeg" alt="">
+
+
     </div>
     <footer>
         <p>Nostalga Games &copy; 2024 - Rainen Morriss</p>

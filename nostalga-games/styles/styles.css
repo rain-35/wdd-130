@@ -127,35 +127,8 @@ nav a:hover{
   
 }
 
-/* \/\/snake game specific\/\/ */
-
-#gameCanvas{
-
-}
-
-.game {
-  
-}
-
-
-canvas {
-    background-color: #000;
-    display: block;
-    margin: 0 auto; /* Center the canvas horizontally */
-    margin-top: 0; /* Adjust this value to move the canvas up */
-}
-#speedSelect{
-  display: block;
-}
-
-footer{
-  background-color: var(--accent3-color);
- height: 100px;
- grid-area: 2/1/3/3 ;
- display: flex;
- justify-content: space-around;
- align-items: center;
- 
+.homepage-pics{
+  width: 30%;
 }
 
 .plan-link{
@@ -177,6 +150,45 @@ footer{
 
 }
 
+footer{
+  background-color: var(--accent3-color);
+ height: 100px;
+ grid-area: 2/1/3/3 ;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ 
+}
+
+
+
+/* \/\/snake game specific\/\/ */
+
+#gameCanvas{
+
+}
+
+.game {
+  
+}
+
+
+canvas {
+    background-color: #000;
+    display: block;
+    margin: 0 auto; /* Center the canvas horizontally */
+    margin-top: 0; /* Adjust this value to move the canvas up */
+}
+#speedSelect{
+  display: block;
+}
+
+.snake-img{
+  width: 200px;
+}
+
+
+
 /* \/\/\/ tic tac toe \/\/\/ */
 
 #tictacwrapper {
@@ -195,7 +207,7 @@ footer{
 }
 
 #gameBoard {
-  grid-area: 2/2/3/3;
+  /* grid-area: 2/2/3/3; */
   background-color: black;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -227,20 +239,9 @@ footer{
   border: 3px solid #009dff;
 }
 
-.board.won {
-  background-color: #d4edda;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
 
-.board.won .winning-symbol {
-  font-size: 60px;
-  font-weight: bold;
-  color: inherit; /* Matches the color of X or O */
-}
+
+
 
 .cell {
   display: flex;
@@ -266,18 +267,47 @@ footer{
 }
 
 /* Styling for winning symbol (X or O) in a won board */
-.board.won .cell.x {
-  color: red; /* Make sure the X stays red in a won board */
+.board.won .winning-symbol.x {
+  color: red; /* Red for X */
 }
 
-.board.won .cell.o {
-  color: blue; /* Make sure the O stays blue in a won board */
+.board.won .winning-symbol.o {
+  color: blue; /* Blue for O */
+}
+
+.board.disabled {
+  pointer-events: none; /* Prevent interaction */
+  opacity: 0.5; /* Make visually dimmed */
+
+}
+
+.board.won {
+  background-color: #d4edda;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  
 }
 
 /* Keep other existing styles */
 .board.won .winning-symbol {
-  font-size: 48px;  /* Make winning symbol bigger */
+  font-size: 100px;  /* Make winning symbol bigger */
   font-weight: bold;
   color: inherit;  /* This ensures color from .cell.x or .cell.o is inherited */
   text-align: center;
+    margin: 0; /* Remove any unwanted margin */
+  padding: 0; /* Remove any unwanted padding */
+  line-height: 1; /* Prevent extra spacing caused by line height */
+  
+}
+
+.board.full:not(.won) {
+  background-color: rgba(255, 0, 0, 0.2); /* Light red overlay */
+}
+
+.xo1, .xo2{
+  grid-row-start: 3;
+  width: 200px;
 }
