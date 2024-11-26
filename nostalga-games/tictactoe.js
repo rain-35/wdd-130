@@ -24,21 +24,18 @@ for (let i = 0; i < 9; i++) {
 }
 
 // Handle cell clicks
-// Handle cell clicks
 function handleCellClick(e) {
   const boardIndex = parseInt(this.parentElement.dataset.index);
   const cellIndex = parseInt(this.dataset.index);
 
-  // Ignore clicks on disabled cells or won boards
   if (
-    this.textContent || // Cell already marked
-    (activeBoard !== null && activeBoard !== boardIndex) || // Not the active board
-    globalBoard[Math.floor(boardIndex / 3)][boardIndex % 3] !== null // Board already won
+    this.textContent || 
+    (activeBoard !== null && activeBoard !== boardIndex) || 
+    globalBoard[Math.floor(boardIndex / 3)][boardIndex % 3] !== null
   ) {
     return;
   }
 
-  // Update the small board and display
   const row = Math.floor(cellIndex / 3);
   const col = cellIndex % 3;
   smallBoards[boardIndex][row][col] = currentPlayer;
@@ -46,49 +43,42 @@ function handleCellClick(e) {
   this.classList.add(currentPlayer.toLowerCase());
 
   // Check if the small board is won
-  if (checkWin(smallBoards[boardIndex])) {
+  const winningCombo = checkWin(smallBoards[boardIndex]);
+  if (winningCombo) {
     const boardElement = document.querySelector(`.board[data-index="${boardIndex}"]`);
 
-    // Clear all cells in the board to avoid duplicates
-    boardElement.querySelectorAll(".cell").forEach(cell => {
-      cell.textContent = ""; // Remove any existing symbols
-    });
-
-    // Add won class and disable clicks
+    // Clear cells and disable board
+    boardElement.querySelectorAll(".cell").forEach(cell => (cell.textContent = ""));
     boardElement.classList.add("won", "disabled");
 
-    // Create and add the winning symbol to the board (centralized display)
+    // Add the winning symbol in the center
     const winningSymbol = document.createElement("div");
     winningSymbol.classList.add("winning-symbol", currentPlayer.toLowerCase());
     winningSymbol.textContent = currentPlayer.trim();
     boardElement.appendChild(winningSymbol);
 
-    // Update the global board state
     globalBoard[Math.floor(boardIndex / 3)][boardIndex % 3] = currentPlayer;
-
-    // Check if the global board has been won
-    if (checkWin(globalBoard)) {
-      alert(`${currentPlayer} wins the game!`);
-      resetGame();
-      return;
-    }
   }
 
-  // Check if the target board is full
-  const targetBoardFull = smallBoards[cellIndex].flat().every(cell => cell !== null);
-  const targetBoardWon =
-    globalBoard[Math.floor(cellIndex / 3)][cellIndex % 3] !== null;
+  const globalWin = checkWin(globalBoard); // Check for global board win
+  if (globalWin) {
+    // Add global winning line
+    const gameWinningLine = document.createElement("div");
+    gameWinningLine.classList.add("global-winning-line", currentPlayer.toLowerCase());
+    positionWinningLine(gameWinningLine, globalWin);  // Position the line based on the win
+    gameBoard.appendChild(gameWinningLine);
+    return; // Stop further processing since the game is won
+  }
 
-  // Update the board's "full" class if it's full but not won
+  const targetBoardFull = smallBoards[cellIndex].flat().every(cell => cell !== null);
+  const targetBoardWon = globalBoard[Math.floor(cellIndex / 3)][cellIndex % 3] !== null;
+
   const boardElement = document.querySelector(`.board[data-index="${boardIndex}"]`);
   if (targetBoardFull && !targetBoardWon) {
-    boardElement.classList.add("full"); // Add red haze
+    boardElement.classList.add("full");
   }
 
-  // Switch turns and update active board
   currentPlayer = currentPlayer === "X" ? "O" : "X";
-
-  // Allow free play if the target board is full or won, otherwise set active board
   activeBoard =
     !targetBoardFull && !targetBoardWon && globalBoard.flat().includes(null)
       ? cellIndex
@@ -97,6 +87,7 @@ function handleCellClick(e) {
   updateActiveBoards();
 }
 
+
 // Highlight active board
 function updateActiveBoards() {
   document.querySelectorAll(".board").forEach((board, index) => {
@@ -104,7 +95,7 @@ function updateActiveBoards() {
     const boardFull = smallBoards[index].flat().every(cell => cell !== null); // Check if this board is full
     if (
       (activeBoard === null || activeBoard === index) &&
-      !boardWon // Exclude won boards from being active
+      !boardWon && !boardFull // Only enable playable boards
     ) {
       board.classList.add("active");
       board.classList.remove("disabled", "dimmed", "full");
@@ -121,35 +112,27 @@ function updateActiveBoards() {
 }
 
 
+
 // Check for a win in a 3x3 grid
 function checkWin(board) {
   for (let i = 0; i < 3; i++) {
-    // Check rows, columns, and diagonals
-    if (
-      (board[i][0] && board[i][0] === board[i][1] && board[i][0] === board[i][2]) ||
-      (board[0][i] && board[0][i] === board[1][i] && board[0][i] === board[2][i])
-    ) {
-      return true;
+    if (board[i][0] && board[i][0] === board[i][1] && board[i][0] === board[i][2]) {
+      return { type: "row", index: i }; // Winning row
+    }
+    if (board[0][i] && board[0][i] === board[1][i] && board[0][i] === board[2][i]) {
+      return { type: "col", index: i }; // Winning column
     }
   }
-  return (
-    (board[0][0] && board[0][0] === board[1][1] && board[0][0] === board[2][2]) ||
-    (board[0][2] && board[0][2] === board[1][1] && board[0][2] === board[2][0])
-  );
+  if (board[0][0] && board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
+    return { type: "diag", index: 0 }; // Top-left to bottom-right
+  }
+  if (board[0][2] && board[0][2] === board[1][1] && board[0][2] === board[2][0]) {
+    return { type: "diag", index: 1 }; // Top-right to bottom-left
+  }
+  return null;
 }
 
-// Highlight active board
-function updateActiveBoards() {
-  document.querySelectorAll(".board").forEach((board, index) => {
-    if (activeBoard === null || activeBoard === index) {
-      board.classList.add("active");
-      board.classList.remove("disabled", "dimmed");
-    } else {
-      board.classList.remove("active");
-      board.classList.add("disabled", "dimmed");
-    }
-  });
-}
+
 
 // Reset the game
 function resetGame() {
@@ -177,4 +160,8 @@ function resetGame() {
   updateActiveBoards();
 }
 
-updateActiveBoards(); // Initial setup
+updateActiveBoards();
+document.getElementById("restartButton").addEventListener("click", () => {
+  console.log("Restart button clicked");
+  resetGame();
+}); 
