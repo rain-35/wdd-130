@@ -14,34 +14,66 @@
 
 <body>
     <div class="snakepage">
+        <header>
+            <a class="logo-bar" id="logo_link" href="index.html">
+                <img class="logo" src="images/logo.jpg" alt="Logo image">
+            </a>
+            <div class="nav-bar">
+                <nav>
+                    <a href="index.html"> Home</a>
+                    <a href="snake-game.html">Snake Game</a>
+                    <a href="tictactoe.html"> Tic Tac Toe</a>
+                </nav>
+            </div>
 
-        <h1>Snake Game</h1>
-        <label for="speedSelect">Speed:</label>
-        <select id="speedSelect">
-            <option value="fast">Fast</option>
-            <option value="medium">Medium</option>
-            <option value="slow">Slow</option>
-        </select>
+        </header>
 
-        <button id="startButton">Start Game</button>
+        <div id="snakecontent">
+            <div class="snake-title">
+                <h1>Snake Game</h1>
+            </div>
+            <div class="snake-area">
+                <canvas id="gameCanvas"></canvas>
+            </div>
 
-        <h2>Score: <span id="scoreDisplay">0</span></h2> <!-- Score display -->
 
-        <canvas id="gameCanvas"></canvas>
+            <div class="snake-options">
+                <h2>Score: <span id="scoreDisplay">0</span></h2> <!-- Score display -->
+                <button id="startButton">Start Game</button>
+                <div class="dropdown">
+                    <button id="speedButton">Select Speed</button>
+                    <ul class="dropdown-content" id="speedOptions">
+                        <li data-value="fast">Fast</li>
+                        <li data-value="medium">Medium</li>
+                        <li data-value="slow">Slow</li>
+                    </ul>
+                </div>
+            </div>
+            
 
-        <script class="game" src="snake.js"></script> <!-- Link to the external JavaScript file -->
-        <img class="snake-img" src="images/snake.jpeg" alt="">
-        
-        <p>In this classic snake game, your goal is to control a growing snake and collect food while avoiding
-            collisions with your own tail. Use the arrow keys (or WASD keys) to guide the snake in different directions.
-            Each time the snake eats a piece of food, it grows longer, and your score increases. The game becomes more
-            challenging as the snake's length increases, requiring careful maneuvering to avoid trapping yourself. You
-            can adjust the game speed—slow, medium, or fast—before starting to suit your play style. Aim for the highest
-            score you can achieve!</p>
-            <img class="snake-img" src="images/tall-snake.jpeg" alt="">
+            <img class="snake-img1" src="images/snake.jpeg" alt="">
+
+
+
+            <p class="snake-rules">In this classic snake game, your goal is to control a growing snake and collect food
+                while avoiding collisions with your own tail. Use the arrow keys (or WASD keys) to guide the snake in
+                different directions.
+                Each time the snake eats a piece of food, it grows longer, and your score increases. The game becomes
+                more challenging as the snake's length increases, requiring careful maneuvering to avoid trapping
+                yourself.
+                You can adjust the game speed—slow, medium, or fast—before starting to suit your play style. Aim for the
+                highest score you can achieve!
+                There is a current known bug where if you try to turn around too quickily it will register that you hit
+                your own tail</p>
+            <img class="snake-img2" src="images/tall-snake.jpeg" alt="">
+        </div>
+
+
 
 
     </div>
+    <script class="game" src="snake.js"></script> <!-- Link to the external JavaScript file -->
+
     <footer>
         <p>Nostalga Games &copy; 2024 - Rainen Morriss</p>
         <p><a class="plan-link" href="site-plan.html">Site Plan</a></p>

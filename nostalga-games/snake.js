@@ -1,8 +1,9 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const startButton = document.getElementById('startButton');
-const sizeSelect = document.getElementById('sizeSelect');
-const speedSelect = document.getElementById('speedSelect'); // For speed selection
+const speedButton = document.getElementById('speedButton'); // Button for dropdown
+const speedOptions = document.getElementById('speedOptions'); // Dropdown content
+const speedListItems = document.querySelectorAll('#speedOptions li'); // Dropdown options
 const scoreDisplay = document.getElementById('scoreDisplay');
 
 const boxSize = 20; // Size of each grid unit (snake segment, food)
@@ -10,7 +11,7 @@ let gameSpeed = 200; // Default snake speed
 let snake = [];
 let food = {};
 let direction = { x: 0, y: 0 };
-let canvasSize = { width: 600, height: 600 }; // Fixed size
+let canvasSize = { width: 700, height: 700 }; // Fixed size
 let initialSnakeLength = 5; // Default starting snake length
 let gameInterval;
 let score = 0; // Score counter
@@ -20,21 +21,49 @@ canvas.width = canvasSize.width;
 canvas.height = canvasSize.height;
 
 // Speed settings
-const speedOptions = {
-    fast:20,   // Adjust this value for fast
+const speedSettings = {
+    fast: 50,   // Adjust this value for fast
     medium: 150, // Adjust this value for medium
     slow: 300,   // Adjust this value for slow
 };
 
+// Dropdown toggle
+speedButton.addEventListener('click', () => {
+    speedOptions.classList.toggle('show'); // Show or hide the dropdown
+});
+
+// Handle speed selection
+speedListItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const selectedSpeed = item.getAttribute('data-value'); // Get selected speed value
+        gameSpeed = speedSettings[selectedSpeed]; // Set gameSpeed based on selection
+
+        // Update button text
+        speedButton.textContent = `Speed: ${selectedSpeed.charAt(0).toUpperCase() + selectedSpeed.slice(1)}`;
+
+        // Hide the dropdown after selection
+        speedOptions.classList.remove('show');
+
+        console.log(`Selected Speed: ${selectedSpeed}, Interval: ${gameSpeed}`);
+    });
+});
+
+// Close dropdown if clicking outside
+document.addEventListener('click', (event) => {
+    if (!speedButton.contains(event.target) && !speedOptions.contains(event.target)) {
+        speedOptions.classList.remove('show');
+    }
+});
+
 // Start button logic
 startButton.addEventListener('click', () => {
-    // Set game speed based on selected speed
-    const selectedSpeed = speedSelect.value; // Get the selected speed
-    gameSpeed = speedOptions[selectedSpeed];
+    if (!gameSpeed) {
+        alert('Please select a speed before starting the game!');
+        return;
+    }
 
-    console.log(`Selected speed: ${selectedSpeed}, Interval: ${gameSpeed}`); // Log speed selection
-
-    score = 0; // Reset score when the game starts
+    console.log(`Starting game with speed: ${gameSpeed}`);
+    score = 0; // Reset score
     scoreDisplay.textContent = score; // Update score display
 
     resetGame();
@@ -56,12 +85,8 @@ function resetGame() {
     spawnFood();
     
     if (gameInterval) clearInterval(gameInterval);
-    console.log(`Starting game loop with interval: ${gameSpeed}`); // Log interval
     gameInterval = setInterval(gameLoop, gameSpeed);
 }
-
-
-
 
 // Spawn food in a random location, ensuring it aligns with the grid
 function spawnFood() {
