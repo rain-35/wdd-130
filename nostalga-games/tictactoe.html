@@ -15,25 +15,60 @@
 </head>
 
 <body>
-    <div id="tictacwrapper">
+    <div class="snakepage">
+        <header>
+            <a class="logo-bar" id="logo_link" href="index.html">
+                <img class="logo" src="images/logo.jpg" alt="Logo image">
+            </a>
+            <div class="nav-bar">
+                <nav>
+                    <a href="index.html"> Home</a>
+                    <a href="snake-game.html">Snake Game</a>
+                    <a href="tictactoe.html"> Tic Tac Toe</a>
+                </nav>
+            </div>
+
+        </header>
+
+        <div id="snakecontent">
 
 
-        <div id="gameBoard"></div>
-        <button id="restartButton">Restart Game</button>
-        <script src="tictactoe.js"></script>
-        
-        <img class="xo1" src="images/XO2.jpg" alt="">
-        <p>Ultimate Tic-Tac-Toe is a fun twist on the classic game of Tic-Tac-Toe. Instead of just one grid, you play on
-            a 3x3 grid of smaller Tic-Tac-Toe boards. On your turn, you place your symbol ("X" or "O") on one of the
-            small boards, and that tells your opponent where they have to play next. For example, if you play in the
-            top-left corner of a small board, your opponent must play in the top-left small board of the big grid. You
-            win a small board by getting three symbols in a row, and the goal is to win three small boards in a row on
-            the big grid. If a small board is already won or full, you can play on any open small board. It’s a mix of
-            strategy and planning, so think ahead to outsmart your opponent!</p>
-        <img   class="xo2" src="images/tall-XO2.jpg" alt="">
-        
-    
+            <div class="snake-options">
+                <button id="restartButton">Restart</button>
+                <div class="dropdown">
+                    <button id="modeButton">Game Mode</button>
+                    <ul class="dropdown-content">
+                        <li data-mode="player">Player vs Player</li>
+                        <li data-mode="bot">Player vs Computer</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="snake-area">
+                <div id="gameBoard"></div>
+            </div>
+
+            <script src="tictactoe.js"></script>
+
+            <img class="snake-img1" src="images/XO2.jpg" alt="">
+            <p class="snake-rules">Ultimate Tic-Tac-Toe is a fun twist on the classic game of Tic-Tac-Toe. Instead of just one grid, you
+                play on
+                a 3x3 grid of smaller Tic-Tac-Toe boards. On your turn, you place your symbol ("X" or "O") on one of the
+                small boards, and that tells your opponent where they have to play next. For example, if you play in the
+                top-left corner of a small board, your opponent must play in the top-left small board of the big grid.
+                You
+                win a small board by getting three symbols in a row, and the goal is to win three small boards in a row
+                on
+                the big grid. If a small board is already won or full, you can play on any open small board. It’s a mix
+                of
+                strategy and planning, so think ahead to outsmart your opponent!
+                Note: if you play aginst the computer it is likely to be very bad at the game, but have fun any way!</p>
+            <img class="snake-img2" src="images/tall-XO2.jpg" alt="">
+
+
         </div>
+    </div>
     <footer>
         <p>Nostalga Games &copy; 2024 - Rainen Morriss</p>
         <p><a class="plan-link" href="site-plan.html">Site Plan</a></p>

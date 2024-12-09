@@ -379,6 +379,7 @@ background-color: var(--accent3-color);
   /* Adjust to fit the grid properly */
   height: 485px;
   /* Adjust to fit the grid properly */
+  font-family: sans-serif;
 }
 
 .board {
@@ -399,6 +400,18 @@ background-color: var(--accent3-color);
 
 .board.active {
   border: 3px solid #009dff;
+}
+
+#modeButton{
+  background-color: var(--accent2-color);
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-family: var(--heading-font);
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  width: 150px;
 }
 
 
