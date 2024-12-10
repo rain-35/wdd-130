@@ -11,7 +11,7 @@ let gameSpeed = 200; // Default snake speed
 let snake = [];
 let food = {};
 let direction = { x: 0, y: 0 };
-let canvasSize = { width: 700, height: 700 }; // Fixed size
+let canvasSize = { width: 800, height: 600 }; // Fixed size
 let initialSnakeLength = 5; // Default starting snake length
 let gameInterval;
 let score = 0; // Score counter
@@ -23,7 +23,7 @@ canvas.height = canvasSize.height;
 // Speed settings
 const speedSettings = {
     fast: 50,   // Adjust this value for fast
-    medium: 150, // Adjust this value for medium
+    medium: 200, // Adjust this value for medium
     slow: 300,   // Adjust this value for slow
 };
 

@@ -138,15 +138,33 @@ nav a:hover{
   
 }
 
-.snake-link, .tictactoe-link, .coming-soon1, .coming-soon2{
-  width: 100%;
+
+.homepage-pics{
   height: 100%;
- 
+}
+
+.tile-background {
+  text-align: center;
+  background-color: var(--accent1-color);
+  height: 100%;
+  border-radius: 10px;
+  transition: transform 0.5s, border-radius  0.5s, box-shadow 1s;
+
+
+}
+
+.tile-background:hover{
+  transform: scale(1.1);
+  border-radius: 50px;
+  box-shadow: 0 0 20px 20px rgb(255, 255, 236);
+  transition: transform 0.5s, border-radius  0.5s, box-shadow 10s;
+  
+
 }
 
 .snake-link{
   grid-area: 2 / 2 / 3 / 3;
-  overflow: hidden;
+  
   
 }
 
@@ -156,12 +174,12 @@ nav a:hover{
 }
 
 .coming-soon1{
-  background-color: red;
+ 
   grid-area: 4 / 2 / 5 / 3;
 }
 
 .coming-soon2{
-  background-color: red;
+  
   grid-area: 4 / 4 / 5 / 5;
 }
 
@@ -231,7 +249,7 @@ font-family: var(--title-font);
   margin: 0 auto;
   /* border: lime solid 2px; */
   width: 100%;
-  display: flex;
+  
   justify-content: space-around;
 
 
@@ -331,6 +349,8 @@ background-color: var(--accent3-color);
 .snake-rules{
   grid-area: 4/3/5/4;
   font-family: var(--paragraph-font);
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .snake-img1, .snake-img2{
@@ -375,11 +395,12 @@ background-color: var(--accent3-color);
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
-  width: 485px;
+  width: 600px;
   /* Adjust to fit the grid properly */
-  height: 485px;
+  height: 600px;
   /* Adjust to fit the grid properly */
   font-family: sans-serif;
+  margin: 0 auto;
 }
 
 .board {
@@ -414,9 +435,27 @@ background-color: var(--accent3-color);
   width: 150px;
 }
 
+#modeButton:hover{
+  background-color: var(--accent3-color);
+  box-shadow: 0 0 5px 2px var(--secondary-color);
+}
 
+#restartButton{
+  background-color: var(--accent2-color);
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-family: var(--heading-font);
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  width: 150px;
+}
 
-
+#restartButton:hover {
+  box-shadow: 0 0 5px 2px var(--secondary-color);
+  background-color: var(--accent3-color);
+}
 
 
 
@@ -496,18 +535,5 @@ background-color: var(--accent3-color);
   width: 200px;
 }
 
-#restartButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
 
-#restartButton:hover {
-  background-color: #0056b3;
-}
+
